@@ -19,7 +19,7 @@ function whatIsInAName(collection, source) {
    arr = arr.filter(function(n){   //Remove the undefined values of an array.
     return n !== undefined;
 });
-console.log(arr); //see the result on terminal
+console.log(arr);
 return  arr;
 
   }
