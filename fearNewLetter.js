@@ -1,4 +1,6 @@
 function fearNotLetter(str) {
+
+    console.log(str);
     return str;
   }
   
