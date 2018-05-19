@@ -4,7 +4,7 @@ var add = function(){
 };
 
 function addd(){
-  return "I'm function add()";
+  return "Hi. I'm function add()";
 }
 
 console.log(add());
