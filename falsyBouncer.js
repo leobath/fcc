@@ -4,7 +4,6 @@ function bouncer(arr) {
     function allowValues(value){
         if(value !== false || value !== null || value !== 0 || value !== "" || value !== undefined || value !== NaN){
             return value;
-
         }
     }
     var res = arr.filter(allowValues);
