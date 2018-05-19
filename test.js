@@ -4,7 +4,7 @@ var add = function(){
 };
 
 function addd(){
-  return "I'm addd()";
+  return "I'm add()";
 }
 
-console.log(addd());
+console.log(add());
