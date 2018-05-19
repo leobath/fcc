@@ -6,12 +6,7 @@ function bouncer(arr) {
             return value;
 
         }
-
-
-
-
     }
-
     var res = arr.filter(allowValues);
     console.log(res);
     return res;
