@@ -3,7 +3,7 @@ var add = function(){
   return "hello";
 };
 
-function addd(){
+function add(){
   return "Hi. I'm function add()";
 }
 
