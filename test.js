@@ -1,10 +1,7 @@
+var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+var dum = 'A';
 
-var add = function(){
-  return "hello";
-};
+var regexp = /[dum-E]/gi;
+var matches_array = str.match(regexp);
 
-function add(){
-  return "Hi. I'm function add()";
-}
-
-console.log(add());
+console.log(matches_array);
