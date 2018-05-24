@@ -18,7 +18,7 @@ function uniteUnique(arr) {
     })
     console.log(newflattened);
 
-    ///write your code under this line.
+    return newflattened;
 
     
 
