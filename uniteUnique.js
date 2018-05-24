@@ -15,13 +15,9 @@ function uniteUnique(arr) {
     //remove the duplicates  
     var newflattened = flattened.filter(function(item, pos) {
         return flattened.indexOf(item) == pos;
-    })
+    });
     console.log(newflattened);
-
     return newflattened;
-
-    
-
   }
   
   //uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
