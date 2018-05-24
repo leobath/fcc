@@ -11,8 +11,11 @@ function uniteUnique(arr) {
         },
         []
       );
-    
-    console.log(flattened);
+
+    var newflattened = flattened.filter(function(item, pos) {
+        return flattened.indexOf(item) == pos;
+    })
+    console.log(newflattened);
 
     ///write your code under this line.
 
