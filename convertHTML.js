@@ -1,19 +1,32 @@
 function convertHTML(str) {
     // &colon;&rpar;
-    var regex = /(\W+)\S(W+)/;
-    
+    // var regex = /[&]/i;
 
-    switch (str) {
-        case "&":
-            str = str.replace
-            break;
-    
-        default:
-            break;
-    }
+    // var newstr = str.replace(regex, '&amp;');
 
-    return str;
+
+    var symbolsToChange = {
+        '&': '&amp;',
+        '>': '&gt;',
+        '<': '&lt;',
+        '\"': '&quot;',
+        '\'': '&apos;'
+    }; 
+
+
+    String.prototype.allReplace = function(obj) {
+        var retStr = this;
+        for (var x in obj) {
+            retStr = retStr.replace(new RegExp(x, 'g'), obj[x]);
+        }
+        return retStr;
+    };
+
+    var newstr = str.allReplace(symbolsToChange);
+
+console.log (newstr);
+    return newstr;
   }
   
-  convertHTML("Dolce & Gabbana");
+  convertHTML("Dolce \" Gabbana");
   
