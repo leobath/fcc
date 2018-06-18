@@ -10,6 +10,7 @@ console.log(`${splited}`);  //ES6 command result-> 'kyo'
 
 const aMatrix = [3, 6, 8, 2, 4];
 
+// delete elements of a matrix with filter()
 let res = aMatrix.filter(
     (a) => { if (a == 3) {
         return a !=3;
