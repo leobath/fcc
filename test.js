@@ -1,3 +1,5 @@
+//Used for testing...
+
 let someText = "Tokyo";
 
 var aVar = Math.floor(someText.length/2);
