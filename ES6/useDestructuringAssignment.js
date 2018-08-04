@@ -10,8 +10,11 @@ const stats = {
     "use strict"; // do not change this line
   
     // change code below this line
+
+    ({min, max}) => {}; // send the default values
+    
     return function half(stats) {
-     stats = ({max:56.78, min:-0.75}) // use function argument destructuring
+     // use function argument destructuring
       return (stats.max + stats.min) / 2.0;
     };
     // change code above this line
