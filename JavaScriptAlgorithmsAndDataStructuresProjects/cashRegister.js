@@ -1,42 +1,60 @@
 function checkCashRegister(price, cash, cid) {
   var change;
 
-  // var valueOfChange = cash - price;
-  var valueOfChange = parseFloat(163);
-  
+  var valueOfChange = cash - price;
+  // var valueOfChange = 163.42;
+  var intPart = parseInt(valueOfChange);
+  var floatPart = Math.round((valueOfChange - intPart) * 100);
 
-  if (valueOfChange % (0.1) == 0){console.log(true);} else console.log(false);
+  console.log(Math.round(floatPart));
+
+  
   console.log(valueOfChange + " --Change to give--");
 
-  while(valueOfChange > 0){
-
+  if(floatPart !== 0){
+    while(floatPart > 0){    
+          
+      if(floatPart % 25 === 0) {console.log("quarter"); floatPart -= 25;continue;} 
     
-
-  if(valueOfChange % 100 === 0) {console.log("one hundrend"); valueOfChange -= 100; continue;}
-
-  if(valueOfChange % 20 === 0) {console.log("twenty"); valueOfChange -= 20;continue;} 
-
-  if(valueOfChange % 10 === 0) {console.log("ten"); valueOfChange -= 10; continue;}
-
-  if(valueOfChange % 5 === 0) {console.log("five"); valueOfChange -= 5; continue;}
-
-  if(valueOfChange % 1 === 0) {console.log("dollar"); valueOfChange -= 1;continue;}
-
-  if(valueOfChange % 0.25 === 0) {console.log("quarter (cash " + valueOfChange+")"); valueOfChange -= 0.25; continue;}
-
-  if(valueOfChange % 0.1 === 0) {console.log("dime"); valueOfChange -= 0.1; continue;}
-
-  if(valueOfChange % 0.05 === 0) {console.log("nickel"); valueOfChange -= 0.05; continue;}
-
-  if(valueOfChange % (0.01 || 0.02 || 0.03 || 0.04) === 0) {console.log("penny"); valueOfChange -= 0.01;continue;}
-
-  else console.log("bullshit"); valueOfChange = 0;
+      if(floatPart % 10 === 0) {console.log("dime"); floatPart -= 10; continue;}
+    
+      if(floatPart % 5 === 0) {console.log("nickel"); floatPart -= 5; continue;}
+    
+      if(floatPart % 1 === 0) {console.log("penny"); floatPart -= 1;continue;}  
+    
+      else console.log("bullshit"); floatPart = 0; continue;
+    
+      }
 
   }
 
+
+  if(intPart !==0){
+    while(intPart > 0){    
+
+      if(intPart % 100 === 0) {console.log("one hundrend"); intPart -= 100; continue;}
+    
+      if(intPart % 20 === 0) {console.log("twenty"); intPart -= 20;continue;} 
+    
+      if(intPart % 10 === 0) {console.log("ten"); intPart -= 10; continue;}
+    
+      if(intPart % 5 === 0) {console.log("five"); intPart -= 5; continue;}
+    
+      if(intPart % 1 === 0) {console.log("dollar"); intPart -= 1;continue;}
+    
+      // else console.log("bullshit"); intPart = 0; continue;
+    
+      }
+
+  }
+
+  
+
+  console.log(intPart + "." + floatPart);
+
   var cashDrawler =[[]];
   cashDrawler = cid.reverse(); //give first bigger coins for change
-  console.log(cashDrawler + " --Change Drawler--");
+  // console.log(cashDrawler + " --Change Drawler--");
   // Here is your change, ma'am.
   return change;
 }
