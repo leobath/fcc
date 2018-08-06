@@ -36,6 +36,18 @@ function checkCashRegister(price, cash, cid) {
 
   // console.log(Math.round(floatPart)); //Math.round() to solve the decimal problem.
 
+  var givenChange = cashDrawler;
+  givenChange.forEach(position => {
+    position[1] = 0;
+    console.log(position);
+  });
+  
+
+  var changeToGive = {
+    status: "",
+    change: []
+  }
+// console.log(givenChange);
   
   console.log(valueOfChange + " --Change to give--");
 
@@ -50,17 +62,24 @@ function checkCashRegister(price, cash, cid) {
     if(divByHundrend > 0 && coinDrawler[0] > 0) {
       coinDrawler[0]--;
       valueOfChange -= 100;
+      givenChange[0][1] += 100;
+      //console.log(givenChange[0]);
       console.log("hundrend If...");
       valueOfChange = valueOfChange.toFixed(2);
       console.log(valueOfChange);
       continue;
     }
 
+    
+
+    
+
     divByTwenty = parseInt(valueOfChange / 20);
 
     if(divByTwenty > 0 && coinDrawler[1] > 0) {
       coinDrawler[1]--;
       valueOfChange -= 20;
+      givenChange[1][1] += 20;
       console.log("twenty If...");
       valueOfChange = valueOfChange.toFixed(2);
       console.log(valueOfChange);
@@ -72,6 +91,7 @@ function checkCashRegister(price, cash, cid) {
     if(divByTen > 0 && coinDrawler[2] > 0) {
       coinDrawler[2]--;
       valueOfChange -= 10;
+      givenChange[2][1] += 10;
       console.log("ten If...");
       valueOfChange = valueOfChange.toFixed(2);
       console.log(valueOfChange);
@@ -82,6 +102,7 @@ function checkCashRegister(price, cash, cid) {
     if(divByFive > 0 && coinDrawler[3] > 0) {
       coinDrawler[3]--;
       valueOfChange -= 5;
+      cashDrawler[3][1] -= 5;
       console.log("five If...");
       valueOfChange = valueOfChange.toFixed(2);
       console.log(valueOfChange);
@@ -92,6 +113,7 @@ function checkCashRegister(price, cash, cid) {
     if(divByTwenty > 0 && coinDrawler[4] > 0) {
       coinDrawler[4]--;
       valueOfChange -= 1;
+      cashDrawler[4][1] -= 1;
       console.log("one If...");
       valueOfChange = valueOfChange.toFixed(2);
       console.log(valueOfChange);
@@ -143,6 +165,17 @@ function checkCashRegister(price, cash, cid) {
     console.log(valueOfChange);
     valueOfChange = 0;
   }
+
+  // add the positive change arrays in the object
+  if(givenChange[0][1] > 0){ changeToGive.change.push(givenChange[0]);}
+  if(givenChange[1][1] > 0){ changeToGive.change.push(givenChange[1]);}
+  if(givenChange[2][1] > 0){ changeToGive.change.push(givenChange[2]);}
+  if(givenChange[3][1] > 0){ changeToGive.change.push(givenChange[3]);}
+  if(givenChange[4][1] > 0){ changeToGive.change.push(givenChange[4]);}
+  if(givenChange[5][1] > 0){ changeToGive.change.push(givenChange[5]);}
+  if(givenChange[6][1] > 0){ changeToGive.change.push(givenChange[6]);}
+  if(givenChange[7][1] > 0){ changeToGive.change.push(givenChange[7]);}
+  if(givenChange[0][1] > 0){ changeToGive.change.push(givenChange[8]);}
   console.log(coinDrawler);
 
 
@@ -151,7 +184,7 @@ function checkCashRegister(price, cash, cid) {
   console.log(intPart + "." + floatPart);
 
   
-  console.log(cashDrawler + " --Change Drawler--");
+  console.log(JSON.stringify(changeToGive) + " --Change Drawler--");
   sumOfMoney = 0;
   cashDrawler.forEach((slot, amm) => {
     // console.log(slot);
@@ -179,7 +212,7 @@ function checkCashRegister(price, cash, cid) {
 
 // checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]) //should return {status: "OPEN", change: [["QUARTER", 0.5]]}.
 
-checkCashRegister(3.26, 335, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 200]]) //should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
+checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]) //should return {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
 
 // checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]) //should return {status: "INSUFFICIENT_FUNDS", change: []}.
 
