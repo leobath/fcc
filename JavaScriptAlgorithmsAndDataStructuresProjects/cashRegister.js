@@ -58,7 +58,7 @@ function checkCashRegister(price, cash, cid) {
   if(sumOfMoney < valueOfChange) {
     changeToGive.status = "INSUFFICIENT_FUNDS";
     // console.log(JSON.stringify(changeToGive)+" first if running...");
-    change = JSON.stringify(changeToGive);
+    change = changeToGive;
     console.log(change);
     return change;
   }
@@ -66,7 +66,7 @@ function checkCashRegister(price, cash, cid) {
   if(sumOfMoney.toFixed(2) === valueOfChange.toFixed(2)){
     changeToGive.status = "CLOSED";
     changeToGive.change = initDrawler.reverse();    
-    change = JSON.stringify(changeToGive);
+    change = changeToGive;
     console.log(change);
     return change;
   }
@@ -212,14 +212,14 @@ function checkCashRegister(price, cash, cid) {
     changeToGive.status = "INSUFFICIENT_FUNDS";
     changeToGive.change = [];
     // console.log(JSON.stringify(changeToGive)+ "last if running");
-    change = JSON.stringify(changeToGive);
+    change = changeToGive;
     console.log(change);
     return change;
   }
 
   // console.log(JSON.stringify(changeToGive) + " --Change Drawler--");
   // console.log(valueOfChangeAfter);
-  change = JSON.stringify(changeToGive);
+  change = changeToGive;
   console.log(change);
   // Here is your change, ma'am.
   return change;
