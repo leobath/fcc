@@ -7,7 +7,7 @@ function urlSlug(title) {
   arr1 = title.split(/[ ]+/gi);
   title = arr1.join("-");
   if(title[0] === "-"){
-    title = title.substring(1, title.length);
+    title = title.substring(1);
     console.log("if running...");
     console.log(title);
   }
