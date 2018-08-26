@@ -114,9 +114,12 @@ var watchList = [
 
 // Add your code below this line
 
-var filteredList = watchList.filter(
-(item) =>{
-  if(item.imdbRating >= 8.0) {return item.Title, item.imdbRating; } 
+var filteredList = watchList.filter((a, b) =>{
+    let result = {};
+    if(a.imdbRating >= 8.0){
+        result = a.indexOf(b);
+        return result;
+    }
 }
 );
 
