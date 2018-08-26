@@ -1,6 +1,6 @@
 function splitify(str) {
     // Add your code below this line
-    return str.replace(/[,-]/g, " ").split(" ");
+    return str.replace(/[,-.]/g, " ").split(" ");
     
     // Add your code above this line
   }
