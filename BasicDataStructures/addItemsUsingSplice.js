@@ -1,14 +1,10 @@
 function htmlColorNames(arr) {
-    // change code below this line
-    let newArr =arr;
-
-    newArr = arr.splice(2,1,"BlanchedAlmond");
-    
-    
-    arr = newArr;
-    // change code above this line
-  
-    return arr
+  // change code below this line
+  arr.splice(0, 1, 'DarkSalmon');
+  arr.splice(1, 1, 'BlanchedAlmond');
+  console.log(arr);
+  // change code above this line
+  return arr;
   } 
    
   // do not change code below this line
